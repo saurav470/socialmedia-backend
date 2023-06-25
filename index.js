@@ -110,31 +110,31 @@ if (cluster.isPrimary) {
     server.listen(PORT, () => {
         console.log(`server start on ${process.env.PORT}`);
     })
-    // const SERVER = server.listen(PORT, () => {
-    //     console.log(`server start on ${process.env.PORT}`);
-    // })
+    const SERVER = server.listen(PORT, () => {
+        console.log(`server start on ${process.env.PORT}`);
+    })
 
-    // function Peacefull() {
-    //     SERVER.close((err) => {
-    //         server.shuttingDown = true
-    //         if (err) {
-    //             console.error('Error while shutting down server:', err)
-    //             process.exit(1)
-    //         }
+    function Peacefull() {
+        SERVER.close((err) => {
+            server.shuttingDown = true
+            if (err) {
+                console.error('Error while shutting down server:', err)
+                process.exit(1)
+            }
 
-    //         mongoose.connection.close()
-    //             .then(() => {
-    //                 console.log('Mongoose connection closed.');
-    //                 process.exit(0); // Optionally exit the process
-    //             })
-    //             .catch((error) => {
-    //                 console.error('Error closing Mongoose connection:', error);
-    //                 process.exit(1); // Optionally exit the process with an error code
-    //             });
-    //         console.log("server stop without interupet");
-    //         process.exit(0)
-    //     })
-    // }
-    // process.on('SIGINT', Peacefull);
-    // process.on('SIGTERM', Peacefull);
+            mongoose.connection.close()
+                .then(() => {
+                    console.log('Mongoose connection closed.');
+                    process.exit(0); // Optionally exit the process
+                })
+                .catch((error) => {
+                    console.error('Error closing Mongoose connection:', error);
+                    process.exit(1); // Optionally exit the process with an error code
+                });
+            console.log("server stop without interupet");
+            process.exit(0)
+        })
+    }
+    process.on('SIGINT', Peacefull);
+    process.on('SIGTERM', Peacefull);
 }
