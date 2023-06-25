@@ -3,6 +3,20 @@ const os = require("os");
 const PORT = process.env.PORT || 8000
 const mongoose = require("mongoose")
 const totalcpus = os.cpus().length
+
+const dotenv = require("dotenv");
+const express = require("express");
+const server = express();
+const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
+const compression = require("compression")
+const moment = require('moment-timezone');
+const cors = require("cors")
+const cloudinary = require("cloudinary").v2
+const path = require("path")
+const fs = require("fs")
+const helmet = require("helmet")
+const rateLimit = require('express-rate-limit');
 if (cluster.isPrimary) {
     for (let i = 0; i < totalcpus; i++) {
         cluster.fork();
@@ -12,19 +26,7 @@ if (cluster.isPrimary) {
     })
 } else {
     //module export
-    const dotenv = require("dotenv");
-    const express = require("express");
-    const server = express();
-    const morgan = require("morgan");
-    const cookieParser = require("cookie-parser");
-    const compression = require("compression")
-    const moment = require('moment-timezone');
-    const cors = require("cors")
-    const cloudinary = require("cloudinary").v2
-    const path = require("path")
-    const fs = require("fs")
-    const helmet = require("helmet")
-    const rateLimit = require('express-rate-limit');
+
     // rate limit exports for middelware signup and post
 
 
