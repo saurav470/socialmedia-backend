@@ -34,7 +34,7 @@ const { connectDb } = require("./connection.js");
 const { authRouter } = require("./routes/authRouter.js");
 const { post } = require("./routes/postsRouter.js");
 const { user } = require("./routes/userRouter.js");
-const rateLimit = require("express-rate-limit")
+
 // env configuration
 // dotenv.config("./.env");
 
