@@ -208,3 +208,9 @@
 [2023-06-25T20:55:13+05:30 [Asia/Kolkata]] "GET /" 304 - 3.815 ms  ::1 ipAdress 
 [2023-06-25T20:56:43+05:30 [Asia/Kolkata]] "GET /" 304 - 2.935 ms  ::1 ipAdress 
 [2023-06-25T20:57:11+05:30 [Asia/Kolkata]] "GET /" 304 - 3.427 ms  ::1 ipAdress 
+[2023-06-25T22:38:09+05:30 [Asia/Kolkata]] "GET /" 200 11 2.389 ms  ::1 ipAdress "macOS" userDevice
+[2023-06-25T22:38:20+05:30 [Asia/Kolkata]] "GET /" 304 - 2.736 ms  ::1 ipAdress "macOS" userDevice
+[2023-06-25T22:38:20+05:30 [Asia/Kolkata]] "GET /" 304 - 0.520 ms  ::1 ipAdress "macOS" userDevice
+[2023-06-25T22:38:21+05:30 [Asia/Kolkata]] "GET /" 304 - 0.303 ms  ::1 ipAdress "macOS" userDevice
+[2023-06-25T22:38:22+05:30 [Asia/Kolkata]] "GET /" 304 - 0.303 ms  ::1 ipAdress "macOS" userDevice
+[2023-06-25T22:38:22+05:30 [Asia/Kolkata]] "GET /" 304 - 0.442 ms  ::1 ipAdress "macOS" userDevice
