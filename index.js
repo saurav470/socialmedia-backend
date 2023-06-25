@@ -1,32 +1,31 @@
-const cluster = require("cluster")
-const os = require("os");
-const PORT = process.env.PORT || 8000
-const mongoose = require("mongoose")
-const totalcpus = os.cpus().length
+// const cluster = require("cluster")
+// const os = require("os");
 
-const dotenv = require("dotenv");
-const express = require("express");
-const server = express();
-const morgan = require("morgan");
-const cookieParser = require("cookie-parser");
-const compression = require("compression")
-const moment = require('moment-timezone');
-const cors = require("cors")
-const cloudinary = require("cloudinary").v2
-const path = require("path")
-const fs = require("fs")
-const helmet = require("helmet")
-const rateLimit = require('express-rate-limit');
-if (cluster.isPrimary) {
-    for (let i = 0; i < totalcpus; i++) {
-        cluster.fork();
-    }
-    cluster.on("exit", () => {
-        cluster.fork()
-    })
-} else {
+// const totalcpus = os.cpus().length
+// if (cluster.isPrimary) {
+//     for (let i = 0; i < totalcpus; i++) {
+//         cluster.fork();
+//     }
+//     cluster.on("exit", () => {
+//         cluster.fork()
+//     })
+// } else {
     //module export
-
+    const dotenv = require("dotenv");
+    const express = require("express");
+    const server = express();
+    const morgan = require("morgan");
+    const cookieParser = require("cookie-parser");
+    const compression = require("compression")
+    const moment = require('moment-timezone');
+    const cors = require("cors")
+    const cloudinary = require("cloudinary").v2
+    const path = require("path")
+    const fs = require("fs")
+    const helmet = require("helmet")
+    const rateLimit = require('express-rate-limit');
+    const PORT = process.env.PORT || 8000
+    const mongoose = require("mongoose")
     // rate limit exports for middelware signup and post
 
 
@@ -109,9 +108,7 @@ if (cluster.isPrimary) {
     server.use("/api/v1", user)
 
 
-    server.listen(PORT, () => {
-        console.log(`server start on ${process.env.PORT}`);
-    })
+
     const SERVER = server.listen(PORT, () => {
         console.log(`server start on ${process.env.PORT}`);
     })
@@ -139,4 +136,4 @@ if (cluster.isPrimary) {
     }
     process.on('SIGINT', Peacefull);
     process.on('SIGTERM', Peacefull);
-}
+// }
