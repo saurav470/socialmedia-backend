@@ -36,7 +36,7 @@
     const { user } = require("./routes/userRouter.js");
     // const rateLimit = require("express-rate-limit")
     // env configuration
-    dotenv.config("./.env");
+    // dotenv.config("./.env");
 
 
     //middel ware
