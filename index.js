@@ -50,8 +50,7 @@ if (cluster.isPrimary) {
     server.use((req, res, next) => {
         const val = req.headers['sec-ch-ua-mobile']
         if (val === "?1") {
-            return res.status(400).json({ message: `<div style="white- space: pre - wrap; word - wrap: break-word; ">This site is not allowed for mobile phones. It's currently in development mode of the responsive site. To access this site, please use a non-mobile device.</div>`
-        })
+            return res.status(400).send(`<div style="white- space: pre - wrap; word - wrap: break-word; ">This site is not allowed for mobile phones. It's currently in development mode of the responsive site. To access this site, please use a non-mobile device.</div>`)
 } else {
     next()
 }
