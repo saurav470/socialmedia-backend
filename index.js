@@ -74,11 +74,21 @@ morgan.token('date', (req, res) => {
 morgan.token("ip", (req, res) => {
     return req.ip
 })
+morgan.token("loadip", (req, res) => {
+    // Check if X-Forwarded-For header is present
+    const forwardedFor = req.headers['x-forwarded-for'];
+
+    // Use the first IP address in X-Forwarded-For or fallback to req.ip
+    const clientIp = forwardedFor ? forwardedFor.split(',')[0] : req.ip;
+    console.log(clientIp);
+
+    return clientIp;
+});
 morgan.token("device", (req, res) => {
     return req.headers["sec-ch-ua-platform"]
 })
 
-morgan.format('myformat', '[:date [Asia/Kolkata]] ":method :url" :status :res[content-length] :response-time ms  :ip ipAdress :device userDevice');
+morgan.format('myformat', '[:date [Asia/Kolkata]] ":method :url" :status :res[content-length] :response-time ms  :ip ipAdress :device userDevice :loadip loadip');
 
 server.use(morgan('myformat', { stream: accessLogStream }));
 
