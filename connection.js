@@ -1,14 +1,14 @@
 const { mongoose } = require("mongoose");
 
-function connectDb(url){
-    return mongoose.connect(url).then(()=>{
+function connectDb(url) {
+    return mongoose.connect(url).then(() => {
         console.log("connecton stablish to mongodb");
-    }).catch((err)=>{
-        console.log(`connection failed err:${err}`);
+    }).catch((err) => {
+        console.log(`connection failed err:${err.message}`);
         process.exit(1);
     })
 }
 
-module.exports={
+module.exports = {
     connectDb,
 }
